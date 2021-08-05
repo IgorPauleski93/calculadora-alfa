@@ -18,7 +18,7 @@ $padding->label('Sair')->result('[q]');
 $climate->br();
 
 $input = $climate->input('Selecione uma opção do MENU:');
-$input->accept([1, 'q']);
+$input->accept([1, 2, 'q']);
 $input->strict();
 
 $response = $input->prompt();
