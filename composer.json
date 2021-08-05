@@ -1,0 +1,13 @@
+{
+    "name": "alfa/gitflow",
+    "description": "Projeto fluxo gitflow",
+    "authors": [
+        {
+            "name": "Pauleski",
+            "email": "igorpauleski@hotmail.com"
+        }
+    ],
+    "require": {
+        "league/climate": "^3.7"
+    }
+}
