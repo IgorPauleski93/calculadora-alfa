@@ -12,6 +12,7 @@ $climate = new CLImate();
 $padding = $climate->padding(20);
 
 $padding->label('Somar valores')->result('[1]');
+$padding->label('Subtrair valores')->result('[2]');
 $padding->label('Sair')->result('[q]');
 
 $climate->br();
@@ -25,13 +26,23 @@ $response = $input->prompt();
 switch ($response) {
     case '1';
         $primeiroNumero = $climate->input('Primeiro valor:');
-            $valorPrimeiroNumero = $primeiroNumero->prompt();
+        $valorPrimeiroNumero = $primeiroNumero->prompt();
         $segundoNumero = $climate->input('Segundo valor:');
-            $valorSegundoNumero = $segundoNumero->prompt();
+        $valorSegundoNumero = $segundoNumero->prompt();
         $soma = $valorPrimeiroNumero + $valorSegundoNumero;
-        $climate-output(sprintf('Soma %s com %s é igual: %s', $valorPrimeiroNumero, $valorSegundoNumero, $soma));
+        $climate->output(sprintf('Soma %s com %s é igual: %s', $valorPrimeiroNumero, $valorSegundoNumero, $soma));
         break;
+        
+    case '2';
+        $primeiroNumero = $climate->input('Primeiro valor:');
+        $valorPrimeiroNumero = $primeiroNumero->prompt();
+        $segundoNumero = $climate->input('Segundo valor:');
+        $valorSegundoNumero = $segundoNumero->prompt();
+        $subtrair = $valorPrimeiroNumero - $valorSegundoNumero;
+        $climate->output(sprintf('Subtração %s com %s é igual: %s', $valorPrimeiroNumero, $valorSegundoNumero, $subtrair));
+        break;
+    
     default:
-        $climate-out('Sistema encerrado.');
+        $climate->out('Sistema encerrado.');
         break;
 }
