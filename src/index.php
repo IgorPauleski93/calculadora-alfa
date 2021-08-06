@@ -24,12 +24,13 @@ $padding = $climate->padding(20);
 
 $padding->label('Somar valores')->result('[1]');
 $padding->label('Subtrair valores')->result('[2]');
+$padding->label('Mutiplicar valores')->result('[3]');
 $padding->label('Sair')->result('[q]');
 
 $climate->br();
 
 $input = $climate->input('Selecione uma opção do MENU:');
-$input->accept([1, 2, 'q']);
+$input->accept([1, 2, 3, 'q']);
 $input->strict();
 
 $response = $input->prompt();
@@ -55,6 +56,17 @@ switch ($response) {
         $valorSegundoNumero = $segundoNumero->prompt();
         $subtrair = $valorPrimeiroNumero - $valorSegundoNumero;
         $climate->output(sprintf('Subtração %s com %s é igual: %s', $valorPrimeiroNumero, $valorSegundoNumero, $subtrair));
+        break;
+
+    case '3';
+        $primeiroNumero = $climate->input('Primeiro valor:');
+        $primeiroNumero->accept($numeroPositivo);
+        $valorPrimeiroNumero = $primeiroNumero->prompt();
+        $segundoNumero = $climate->input('Segundo valor:');
+        $primeiroNumero->accept($numeroPositivo);
+        $valorSegundoNumero = $segundoNumero->prompt();
+        $multiplica = $valorPrimeiroNumero * $valorSegundoNumero;
+        $climate->output(sprintf('Multiplicação %s com %s é igual: %s', $valorPrimeiroNumero, $valorSegundoNumero, $multiplica));
         break;
     
     default:
